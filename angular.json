@@ -1,129 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "buildxactDemo": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/buildxactDemo",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
-            "aot": true,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "buildxactDemo:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "buildxactDemo:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "buildxactDemo:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "buildxactDemo:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "buildxactDemo:serve:production"
-            }
-          }
-        }
-      }
-    },
     "main": {
       "projectType": "application",
       "schematics": {
@@ -148,9 +27,7 @@
               "projects/main/src/favicon.ico",
               "projects/main/src/assets"
             ],
-            "styles": [
-              "projects/main/src/styles.scss"
-            ],
+            "styles": ["projects/main/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -212,9 +89,7 @@
               "projects/main/src/favicon.ico",
               "projects/main/src/assets"
             ],
-            "styles": [
-              "projects/main/src/styles.scss"
-            ],
+            "styles": ["projects/main/src/styles.scss"],
             "scripts": []
           }
         },
@@ -226,9 +101,7 @@
               "projects/main/tsconfig.spec.json",
               "projects/main/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -278,9 +151,7 @@
               "projects/library/tsconfig.lib.json",
               "projects/library/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -309,9 +180,7 @@
               "projects/external/src/favicon.ico",
               "projects/external/src/assets"
             ],
-            "styles": [
-              "projects/external/src/styles.scss"
-            ],
+            "styles": ["projects/external/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -373,9 +242,7 @@
               "projects/external/src/favicon.ico",
               "projects/external/src/assets"
             ],
-            "styles": [
-              "projects/external/src/styles.scss"
-            ],
+            "styles": ["projects/external/src/styles.scss"],
             "scripts": []
           }
         },
@@ -387,9 +254,7 @@
               "projects/external/tsconfig.spec.json",
               "projects/external/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -405,6 +270,7 @@
           }
         }
       }
-    }},
-  "defaultProject": "buildxactDemo"
+    }
+  },
+  "defaultProject": "main"
 }
