@@ -1,21 +1,31 @@
-<div class="spinner-container">
+<div class="spinner-container" *ngIf="!(isLoaded$ | async)">
   <mat-spinner></mat-spinner>
 </div>
 
-<div class="search-bar">
-  <form>
-    <mat-form-field>
-      <mat-label>Search Here</mat-label>
-      <mat-icon matPrefix>search</mat-icon>
-      <input
-        type="tel"
-        matInput
-        placeholder="type something here"
-        autocomplete="off"
-      />
-    </mat-form-field>
-  </form>
+<div class="search-bar" *ngIf="isLoaded$ | async">
+  <mat-form-field>
+    <mat-label>Search by subject name</mat-label>
+    <mat-icon matPrefix>search</mat-icon>
+    <input type="tel" matInput autocomplete="off" [formControl]="searchTerm" />
+  </mat-form-field>
 </div>
-<div class="content">
-  123123123123
+<div class="content" *ngIf="isLoaded$ | async">
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="employee_name">
+      <th mat-header-cell *matHeaderCellDef>SUBJECT</th>
+      <td mat-cell *matCellDef="let element">{{ element.employee_name }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>DATE</th>
+      <td mat-cell *matCellDef="let element">{{ element.date | date }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>

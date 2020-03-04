@@ -1,7 +1,5 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatInputModule } from "@angular/material/input";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import { MatDatepickerModule } from "@angular/material/datepicker";
@@ -31,11 +29,15 @@ import { MatTableModule } from "@angular/material/table";
 import { MatSortModule } from "@angular/material/sort";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { SearchPageComponent } from "./search-page/search-page.component";
+import { HttpClientModule } from "@angular/common/http";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [SearchPageComponent],
   imports: [
     CommonModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatAutocompleteModule,
     MatDatepickerModule,
@@ -67,6 +69,8 @@ import { SearchPageComponent } from "./search-page/search-page.component";
   ],
   exports: [
     MatInputModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     MatAutocompleteModule,
     MatDatepickerModule,
     MatFormFieldModule,
@@ -94,6 +98,7 @@ import { SearchPageComponent } from "./search-page/search-page.component";
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+
     SearchPageComponent
   ]
 })
