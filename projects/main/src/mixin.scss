@@ -1,0 +1,17 @@
+// $body-background: '#f2f2f2';
+
+@mixin for-phone-only {
+  @media (max-width: 799px) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (max-width: 1199px) and (min-width: 800px) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
