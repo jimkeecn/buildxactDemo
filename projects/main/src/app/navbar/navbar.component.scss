@@ -37,6 +37,13 @@
   cursor: pointer;
 }
 
+.app-nav-body ul li:focus,
+.app-nav-body ul li:active {
+  border: none;
+  border-color: none;
+  outline: none;
+}
+
 .app-nav-body ul li:hover {
   background-color: $primary;
 }
