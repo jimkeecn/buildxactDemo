@@ -30,9 +30,10 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatTableModule } from "@angular/material/table";
 import { MatSortModule } from "@angular/material/sort";
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { SearchPageComponent } from "./search-page/search-page.component";
 
 @NgModule({
-  declarations: [],
+  declarations: [SearchPageComponent],
   imports: [
     CommonModule,
     MatInputModule,
@@ -92,7 +93,8 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    SearchPageComponent
   ]
 })
 export class SharedModule {}

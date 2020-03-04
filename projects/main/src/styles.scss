@@ -52,3 +52,10 @@ body app-root {
   flex-direction: column;
   box-sizing: border-box;
 }
+
+/***replace***/
+
+.mat-form-field-prefix,
+.mat-form-field-suffix {
+  margin-right: 10px;
+}
