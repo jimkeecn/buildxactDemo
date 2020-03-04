@@ -1,4 +1,12 @@
-// $body-background: '#f2f2f2';
+$pure-white: #fff;
+$white-2: #f2f2f2;
+$primary: #004d40;
+$primary-light: #046958;
+
+@mixin background-opacity($color, $opacity: 0.5) {
+  //background-color: $color; /* The Fallback */
+  background-color: rgba($color, $opacity);
+}
 
 @mixin for-phone-only {
   @media (max-width: 799px) {
