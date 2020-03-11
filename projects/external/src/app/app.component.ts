@@ -1,4 +1,5 @@
 import { Component, Input, ViewEncapsulation } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "app-root",
@@ -16,4 +17,12 @@ export class AppComponent {
     console.log(val, new Date());
     this._dataSource = val;
   }
+
+  // constructor(public http: HttpClient) {
+  //   this.http
+  //     .get("http://dummy.restapiexample.com/api/v1/employees")
+  //     .subscribe((res: any) => {
+  //       this.dataSource = res.data;
+  //     });
+  // }
 }

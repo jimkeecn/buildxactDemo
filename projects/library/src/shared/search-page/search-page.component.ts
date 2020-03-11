@@ -4,7 +4,8 @@ import {
   OnDestroy,
   Input,
   AfterViewInit,
-  ViewChild
+  ViewChild,
+  ViewEncapsulation
 } from "@angular/core";
 import { SubSink } from "subsink";
 import { BehaviorSubject } from "rxjs";
