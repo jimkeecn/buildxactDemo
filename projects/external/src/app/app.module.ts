@@ -10,19 +10,19 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
   declarations: [AppComponent],
   imports: [BrowserModule, SharedModule, BrowserAnimationsModule],
   providers: [],
-  bootstrap: [AppComponent]
-  //entryComponents: [AppComponent]
+  //bootstrap: [AppComponent]
+  entryComponents: [AppComponent]
 })
 export class AppModule {
-  // constructor(private injector: Injector) {
-  //   const AppWebComponent = createCustomElement(AppComponent, { injector });
-  //   customElements.define("subject-table-view", AppWebComponent);
-  //   /**can add more web component here......
-  //    *
-  //    * exmaple:
-  //    * const secondComponent = create.......(){}
-  //    * customElements.define("second-component",secondComponent)
-  //    */
-  // }
-  // ngDoBootstrap() {}
+  constructor(private injector: Injector) {
+    const AppWebComponent = createCustomElement(AppComponent, { injector });
+    customElements.define("subject-table-view", AppWebComponent);
+    /**can add more web component here......
+     *
+     * exmaple:
+     * const secondComponent = create.......(){}
+     * customElements.define("second-component",secondComponent)
+     */
+  }
+  ngDoBootstrap() {}
 }
