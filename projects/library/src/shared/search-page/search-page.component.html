@@ -29,3 +29,14 @@
 
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>
+
+<div class="example-button">
+  <!-- <button mat-raised-button color="primary" (click)="clickChange()">
+    Primary
+  </button> -->
+  <button type="button" (click)="clickChange()">
+    Primary
+  </button>
+  <h5>example value : {{ exampleValue }}</h5>
+  <h3 *ngIf="exampleValue">Display this if example value === true</h3>
+</div>

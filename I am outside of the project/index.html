@@ -64,8 +64,10 @@
           dataResult.forEach(i => {
             i.date = new Date();
           });
+          debugger;
           const component = document.querySelector("subject-table-view");
           component.dataSource = dataResult;
+          // component.invoke();
         });
       }
     </script>

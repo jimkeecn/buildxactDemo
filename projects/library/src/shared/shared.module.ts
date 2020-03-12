@@ -28,6 +28,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatTableModule } from "@angular/material/table";
 import { MatSortModule } from "@angular/material/sort";
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatButtonModule } from "@angular/material/button";
 import { SearchPageComponent } from "./search-page/search-page.component";
 import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from "@angular/forms";
@@ -65,7 +66,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButtonModule
   ],
   exports: [
     MatInputModule,
@@ -98,6 +100,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatButtonModule,
 
     SearchPageComponent
   ]

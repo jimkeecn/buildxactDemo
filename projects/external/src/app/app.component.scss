@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/theming";
+@import "~@angular/material/button/button-base";
+@import "~@angular/material//button/button-theme";
+@import "~@angular/material/table/table-theme";
+@import "~@angular/material/input/input-theme";
+@import "~@angular/material/autocomplete/autocomplete-theme";
+
 @include mat-core();
 
 html,

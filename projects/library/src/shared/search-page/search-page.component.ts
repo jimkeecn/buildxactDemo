@@ -5,7 +5,8 @@ import {
   Input,
   AfterViewInit,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
+  ChangeDetectorRef
 } from "@angular/core";
 import { SubSink } from "subsink";
 import { BehaviorSubject } from "rxjs";
@@ -24,6 +25,8 @@ import { FormControl } from "@angular/forms";
 export class SearchPageComponent implements OnInit, OnDestroy, AfterViewInit {
   private paginator: MatPaginator;
 
+  exampleValue: boolean = false;
+
   @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {
     this.paginator = mp;
     this.dataSource.paginator = this.paginator;
@@ -36,6 +39,7 @@ export class SearchPageComponent implements OnInit, OnDestroy, AfterViewInit {
   isLoaded$ = new BehaviorSubject<boolean>(false);
 
   private _data: FakeData[] = [];
+
   get data() {
     return this._data;
   }
@@ -45,17 +49,34 @@ export class SearchPageComponent implements OnInit, OnDestroy, AfterViewInit {
       this._data = val;
       this.updateTableData(val);
       this.isLoaded$.next(true);
+      this.cd.detectChanges();
+      this.cd.markForCheck();
     }
   }
 
   updateTableData(val: FakeData[]) {
     this.dataSource.data = val;
     this.dataSource.paginator = this.paginator;
+    this.cd.detectChanges();
+    this.cd.markForCheck();
   }
 
+  clickChange() {
+    this.exampleValue = !this.exampleValue;
+  }
   searchTerm = new FormControl("");
 
-  constructor() {}
+  get invokeCdChange() {
+    return "";
+  }
+  @Input()
+  set invokeCdChange(val: any) {
+    console.log("cd invoked", val);
+    this.cd.detectChanges();
+    this.cd.markForCheck();
+  }
+
+  constructor(public cd: ChangeDetectorRef) {}
 
   displayedColumns: string[] = ["employee_name", "date"];
 
@@ -71,10 +92,14 @@ export class SearchPageComponent implements OnInit, OnDestroy, AfterViewInit {
           this.dataSource.filter = res.trim().toLowerCase();
         })
     );
+    this.cd.detectChanges();
+    this.cd.markForCheck();
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.cd.detectChanges();
+    this.cd.markForCheck();
   }
   ngOnDestroy() {
     this.sink.unsubscribe();

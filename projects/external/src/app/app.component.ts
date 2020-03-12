@@ -1,4 +1,9 @@
-import { Component, Input, ViewEncapsulation } from "@angular/core";
+import {
+  Component,
+  Input,
+  ViewEncapsulation,
+  ChangeDetectorRef
+} from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 @Component({
@@ -18,11 +23,17 @@ export class AppComponent {
     this._dataSource = val;
   }
 
-  // constructor(public http: HttpClient) {
-  //   this.http
-  //     .get("http://dummy.restapiexample.com/api/v1/employees")
-  //     .subscribe((res: any) => {
-  //       this.dataSource = res.data;
-  //     });
+  // @Input() invokeCdChange: any;
+
+  // invoke() {
+  //   this.cd.detectChanges();
+  //   this.cd.markForCheck();
   // }
+  constructor(public http: HttpClient, public cd: ChangeDetectorRef) {
+    // this.http
+    //   .get("http://dummy.restapiexample.com/api/v1/employees")
+    //   .subscribe((res: any) => {
+    //     this.dataSource = res.data;
+    //   });
+  }
 }
